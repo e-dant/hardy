@@ -11,8 +11,8 @@ summary:
 
   internally, it reads from 
   '/dev/urandom', forever, making 
-  very long 'shasum's of the endless, 
-  random imput, endlessly.
+  endless 'shasum's of the endless, 
+  random input.
 
   luckily, hardy can die.
   this has the effect of saving your
