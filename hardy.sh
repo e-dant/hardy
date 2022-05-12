@@ -1,8 +1,38 @@
 #! /usr/bin/env bash
 
+function will::tools::hardy::usage() {
+  echo"
+usage:
+  hardy.sh <-s,--start [n] | -d,--die>
+
+summary:
+  hardy is a utility that spawns and
+  destroys difficult processes.
+
+  internally, it reads from 
+  '/dev/urandom', forever, making 
+  very long 'shasum's of the endless, 
+  random imput, endlessly.
+
+  luckily, hardy can die.
+  this has the effect of saving your
+  computer from sounding like it's 
+  entering the atmosphere at low-
+  earth orbit.
+
+examples:
+  # start 5 difficult processes
+  hardy.sh --start 5
+
+  # stop being difficult
+  # (kill all the spawned processes)
+  hardy.sh --die
+"
+}
+
 function will::tools::hardy() {
   case "$1" in
-    -b|--begin)
+    -s|--start)
 
       local count="$2"
       if [ -z "$2" ]; then
@@ -16,7 +46,7 @@ function will::tools::hardy() {
       done
     ;;
 
-    -e|--end)
+    -d|--die)
 
       local pids="$(pgrep -f "cat /dev/urandom")"
       if [ -z "$pids" ]; then
@@ -30,6 +60,9 @@ function will::tools::hardy() {
       fi
     ;;
 
+    *)
+      will::tools::hardy::usage
+    ;;
     esac
 }
 
