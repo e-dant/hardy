@@ -27,6 +27,10 @@ examples:
   # stop being difficult
   # (kill all the spawned processes)
   hardy.sh --die
+
+  # start and stop 100 instances
+  hardy.sh -s 100;hardy.sh -d
+
 "
 }
 
